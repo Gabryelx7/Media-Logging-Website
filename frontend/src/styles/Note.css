@@ -7,10 +7,47 @@
   
   .note-title {
     color: #333;
+    font-weight: bold;
   }
   
-  .note-content {
-    color: #666;
+  .note-media-type-movie {
+    background-color: rgb(233, 57, 219);
+    padding: 10px 15px;
+    border-radius: 15px;
+    display: inline-block;
+    position: relative;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
+  }
+
+  .note-media-type-album {
+    background-color: rgb(246, 166, 47);
+    padding: 10px 15px;
+    border-radius: 15px;
+    display: inline-block;
+    position: relative;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
+  }
+
+  .note-media-type-book {
+    background-color: rgb(110, 244, 197);
+    padding: 10px 15px;
+    border-radius: 15px;
+    display: inline-block;
+    position: relative;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
+  }
+
+  .note-score {
+    background-color: var(--bubble-color, #007bff);
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
   }
   
   .note-date {
