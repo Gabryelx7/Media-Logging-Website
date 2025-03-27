@@ -50,6 +50,7 @@ function Home() {
 
     return (
         <div>
+            <button className="logout-button" type="submit" >Logout</button>
             <h2>Create a Note</h2>
             <form onSubmit={createNote}>
                 <label htmlFor="title">Title:</label>

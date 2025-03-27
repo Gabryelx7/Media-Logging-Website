@@ -21,6 +21,25 @@ div {
     padding: 10px 15px;
     border-radius: 5px;
   }
+
+  .logout-button {
+    background-color:#007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
   
   /* Styles for the form section */
   form {
