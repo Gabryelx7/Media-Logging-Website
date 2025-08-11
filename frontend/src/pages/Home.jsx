@@ -5,6 +5,13 @@ import Note from "../components/Note";
 import "../styles/Home.css";
 import FormNote from "../components/FormNote";
 
+const FILTERS = [
+  { label: "All", value: "All", emoji: "📋" },
+  { label: "Movies", value: "Movie", emoji: "🎬" },
+  { label: "Books", value: "Book", emoji: "📚" },
+  { label: "Albums", value: "Album", emoji: "💿" },
+];
+
 const Home = () => {
   const [notes, setNotes] = useState([]);
   const [review, setReview] = useState("");
@@ -12,6 +19,7 @@ const Home = () => {
   const [score, setScore] = useState(0);
   const [media_type, setMediaType] = useState("");
   const [image, setImage] = useState(null);
+  const [filter, setFilter] = useState("All");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -85,28 +93,46 @@ const Home = () => {
     setReview(note.review);
   };
 
+  // Filter notes based on selection
+  const filteredNotes = filter === "All"
+    ? notes
+    : notes.filter((note) => note.media_type === filter);
+
   return (
-    
-      <div>
-        <button className="logout-button" onClick={() => navigate("/logout")} >Logout</button>
-        <FormNote
-          review={review}
-          setReview={setReview}
-          title={title}
-          setTitle={setTitle}
-          score={score}
-          setScore={setScore}
-          media_type={media_type}
-          setMediaType={setMediaType}
-          image={image}
-          setImage={setImage}
-          onCreate={createNote}
-        />
-        <h2>Notes</h2>
-        {notes.map((note) => (
+    <div>
+      <button className="logout-button" onClick={() => navigate("/logout")} >Logout</button>
+      <FormNote
+        review={review}
+        setReview={setReview}
+        title={title}
+        setTitle={setTitle}
+        score={score}
+        setScore={setScore}
+        media_type={media_type}
+        setMediaType={setMediaType}
+        image={image}
+        setImage={setImage}
+        onCreate={createNote}
+      />
+      <h2 style={{textAlign: "center"}}>Logs</h2>
+      <div className="filter-grid">
+        {FILTERS.map(({ label, value, emoji }) => (
+          <button
+            key={value}
+            className={`filter-btn${filter === value ? " selected" : ""}`}
+            onClick={() => setFilter(value)}
+          >
+            <span style={{ fontSize: "1.5rem", marginRight: 6 }}>{emoji}</span>
+            {label}
+          </button>
+        ))}
+      </div>
+      <div className="note-grid">
+        {filteredNotes.map((note) => (
           <Note note={note} onDelete={deleteNote} onEdit={editNote} key={note.id} />
         ))}
       </div>
+    </div>
   );
 }
 
