@@ -3,6 +3,7 @@ const FormNote = ({
   title, setTitle,
   score, setScore,
   media_type, setMediaType,
+  image, setImage,
   onCreate
 }) => {
   return (
@@ -15,17 +16,42 @@ const FormNote = ({
         <div style={{ display: "flex", alignItems: "flex-start", gap: "24px", marginBottom: "16px" }}>
           <div
             style={{
-              width: "140px",
-              height: "140px",
+              width: "150px",
+              height: "150px",
               border: "2px dotted #aaa",
               borderRadius: "8px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              flexShrink: 0
+              flexShrink: 0,
+              overflow: "hidden",
+              position: "relative"
             }}
           >
-            <span style={{ color: "#aaa" }}>Add Image</span>
+            {image ? (
+              <img
+                src={typeof image === "string" ? image : URL.createObjectURL(image)}
+                alt="Preview"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            ) : (
+              <span style={{ color: "#aaa", textAlign: "center" }}>Add Image</span>
+            )}
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImage(e.target.files[0])}
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                opacity: 0,
+                left: 0,
+                top: 0,
+                cursor: "pointer"
+              }}
+              title=""
+            />
           </div>
           <div style={{ flex: 1 }}>
             <label htmlFor="title">Title:</label>
@@ -45,7 +71,7 @@ const FormNote = ({
               {[1, 2, 3, 4, 5].map((star) => (
                 <span
                   key={star}
-                  style={{ color: star <= score ? "#FFD700" : "#ccc", fontSize: "2.5rem"}}
+                  style={{ color: star <= score ? "#FFD700" : "#ccc", fontSize: "3rem"}}
                   onClick={() => setScore(star)}
                   data-testid={`star-${star}`}
                 >

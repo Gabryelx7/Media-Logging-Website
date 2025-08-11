@@ -12,6 +12,9 @@ const Note = ({ note, onDelete, onEdit }) => {
 
   return (
     <div className="note-container">
+      {note.image && (
+        <img src={note.image} alt="Note" style={{ width: "100px", height: "100px", objectFit: "cover" }} />
+      )}
       <p>
         <span className="note-score" style={{ "--bubble-color": getScoreColor(note.score) }}>{note.score}</span>
         <span className="note-title" >&ensp;{note.title}</span>

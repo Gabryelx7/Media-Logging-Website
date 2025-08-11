@@ -7,6 +7,7 @@ class Note(models.Model):
     media_type = models.CharField(max_length=25)
     review = models.TextField()
     score = models.IntegerField()
+    image = models.ImageField(upload_to='note_images/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notes")
 

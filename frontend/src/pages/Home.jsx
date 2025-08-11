@@ -11,6 +11,7 @@ const Home = () => {
   const [title, setTitle] = useState("");
   const [score, setScore] = useState(0);
   const [media_type, setMediaType] = useState("");
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,10 +43,19 @@ const Home = () => {
   const createNote = (e) => {
     e.preventDefault();
 
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('review', review);
+    formData.append('score', score);
+    formData.append('media_type', media_type);
+    if (image) formData.append('image', image);
+
     const previousNote = notes.find((note) => note.title === title && note.media_type === media_type);
     if (!previousNote) {
       api
-        .post("/api/notes/", { review, score, media_type, title })
+        .post("/api/notes/", formData, {
+          headers: { 'Content-Type': 'multipart/form-data'}
+        })
         .then((res) => {
           if (res.status === 201) alert("Note created!");
           else alert("Failed to make note.");
@@ -55,7 +65,9 @@ const Home = () => {
     }
     else {
       api
-        .put(`/api/notes/update/${previousNote.id}/`, { review, score, media_type, title })
+        .put(`/api/notes/update/${previousNote.id}/`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data'}
+        })
         .then((res) => {
           if (res.status === 200) alert("Note updated!");
           else alert("Failed to update note.");
@@ -86,6 +98,8 @@ const Home = () => {
           setScore={setScore}
           media_type={media_type}
           setMediaType={setMediaType}
+          image={image}
+          setImage={setImage}
           onCreate={createNote}
         />
         <h2>Notes</h2>
