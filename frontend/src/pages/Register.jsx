@@ -4,7 +4,7 @@ const Register = () => {
     return(
     <div>
         <FormAuth route="/api/user/register/" method="register"/>
-        <center><a href="/login/">Already have an account? Login here</a></center>
+        <center><a href="/login/" style={{color: "#FFF"}}>Already have an account? Login here</a></center>
     </div>
     )
 }

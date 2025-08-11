@@ -67,6 +67,7 @@ const Home = () => {
         .then((res) => {
           if (res.status === 201) alert("Note created!");
           else alert("Failed to make note.");
+          cleanForm();
           getNotes();
         })
         .catch((err) => alert(err));
@@ -79,6 +80,7 @@ const Home = () => {
         .then((res) => {
           if (res.status === 200) alert("Note updated!");
           else alert("Failed to update note.");
+          cleanForm();
           getNotes();
         })
         .catch((err) => alert(err));
@@ -92,6 +94,14 @@ const Home = () => {
     setScore(note.score.toString());
     setReview(note.review);
   };
+
+  const cleanForm = () => {
+    setMediaType("");
+    setReview("");
+    setTitle("");
+    setScore(0);
+    setImage(null);
+  }
 
   // Filter notes based on selection
   const filteredNotes = filter === "All"
