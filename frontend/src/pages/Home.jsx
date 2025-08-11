@@ -137,11 +137,12 @@ const Home = () => {
           </button>
         ))}
       </div>
-      <div className="note-grid">
+      <div className="note-grid" style={{marginBottom: "50px"}}>
         {filteredNotes.map((note) => (
           <Note note={note} onDelete={deleteNote} onEdit={editNote} key={note.id} />
         ))}
       </div>
+      
     </div>
   );
 }
