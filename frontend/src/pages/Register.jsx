@@ -1,9 +1,9 @@
-import Form from "../components/Form"
+import FormAuth from "../components/FormAuth"
 
-function Register() {
+const Register = () => {
     return(
     <div>
-        <Form route="/api/user/register/" method="register"/>
+        <FormAuth route="/api/user/register/" method="register"/>
         <center><a href="/login/">Already have an account? Login here</a></center>
     </div>
     )

@@ -1,6 +1,6 @@
 import "../styles/Note.css"
 
-function Note({ note, onDelete, onEdit }) {
+const Note = ({ note, onDelete, onEdit }) => {
   const formattedDate = new Date(note.created_at).toLocaleDateString("en-US")
   const mediaTypeClass = `note-media-type-${note.media_type.toLowerCase()}`;
   const getScoreColor = (score) => {
