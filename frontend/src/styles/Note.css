@@ -56,7 +56,7 @@
   }
   
   .delete-button {
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -66,5 +66,19 @@
   }
   
   .delete-button:hover {
-    background-color: #d32f2f; /* Darker red */
+    background-color: #d32f2f;
+  }
+
+  .edit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .edit-button:hover {
+    background-color: #388E3C;
   }
