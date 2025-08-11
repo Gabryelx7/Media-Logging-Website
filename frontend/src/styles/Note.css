@@ -1,12 +1,5 @@
-.note-container {
-  padding: 10px;
-  margin: 20px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
 .note-card {
-  background: #fff;
+  background: #456;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   padding: 16px;
@@ -54,7 +47,6 @@
 }
 
 .note-bottom {
-  margin-top: 2px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -63,7 +55,6 @@
 
 .note-review {
   margin: 0 0 4px 0;
-  color: #444;
   font-size: 0.98rem;
 }
 
@@ -75,7 +66,6 @@
 
 .note-date {
   font-size: 0.85rem;
-  color: #888;
 }
 
 .edit-button, .delete-button {

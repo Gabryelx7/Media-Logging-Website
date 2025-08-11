@@ -12,7 +12,7 @@ const FormNote = ({
         <h2 style={{textAlign: "center"}}>Create a Log</h2>
       </div>
       
-      <form onSubmit={onCreate}>
+      <form onSubmit={onCreate} style={{backgroundColor: "#456"}}>
         <div style={{ display: "flex", alignItems: "flex-start", gap: "24px", marginBottom: "16px" }}>
           <div
             style={{
